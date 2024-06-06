@@ -18,26 +18,26 @@ const tradeModel = require("./models/Trade");
 
 
 
-// Endpoints Authorization
-const AuthEndpoints = require("./endpoints/Auth");
-app.use(AuthEndpoints);
+// // Endpoints Authorization
+// const AuthEndpoints = require("./endpoints/Auth");
+// app.use(AuthEndpoints);
 
 
-// EndPoints Users
-const endPointsUsers = require("./endpoints/Users_EndPoints");
-app.use(endPointsUsers);
+// // EndPoints Users
+// const endPointsUsers = require("./endpoints/Users_EndPoints");
+// app.use(endPointsUsers);
 
-// EndPoints Accounts
-const endPointsAccounts = require("./endpoints/Accounts_EndPoints");
-app.use(endPointsAccounts);
+// // EndPoints Accounts
+// const endPointsAccounts = require("./endpoints/Accounts_EndPoints");
+// app.use(endPointsAccounts);
 
-// EndPoints Strategies
-const endPointsStrategies = require("./endpoints/Strategies_EndPoints");
-app.use(endPointsStrategies);
+// // EndPoints Strategies
+// const endPointsStrategies = require("./endpoints/Strategies_EndPoints");
+// app.use(endPointsStrategies);
 
-// EndPoints Trades
-const endPointsTrades = require("./endpoints/Trades_EndPoints");
-app.use(endPointsTrades);
+// // EndPoints Trades
+// const endPointsTrades = require("./endpoints/Trades_EndPoints");
+// app.use(endPointsTrades);
 
 
 
