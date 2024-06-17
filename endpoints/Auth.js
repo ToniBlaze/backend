@@ -4,6 +4,10 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { body, validationResult } = require('express-validator');
 
+
+const { validateRegisterInput, validateLoginInput } = validation
+
+
 const saltRounds = 10;
 const bcriptPassword = process.env.APP_PASSWORD_BCRIPT;
 const jwtSecretKey = process.env.APP_JWT_SECRET_KEY;
@@ -11,21 +15,6 @@ const jwtSecretKey = process.env.APP_JWT_SECRET_KEY;
 // Models
 const UserModel = require('../models/Users');
 
-// Validation middleware
-const validateRegisterInput = [
-  body('name').notEmpty().trim().escape().isAlpha().withMessage('Il nome non può contenere numeri o simboli'),
-  body('lastname').notEmpty().trim().escape().isAlpha().withMessage('Il cognome non può contenere numeri o simboli'),
-  body('birthdate').notEmpty().trim().isDate().withMessage('Inserisci una data valida'),
-  body('zipCode').notEmpty().trim().escape().withMessage('Lo ZipCode puo\' avere solo numeri'),
-  body('city').notEmpty().trim().escape().isAlpha().withMessage('La città non può contenere numeri o simboli'),
-  body('email').notEmpty().trim().isEmail().withMessage('Email non valida'),
-  body('password').notEmpty().trim().isLength({ min: 6 }).withMessage('La password deve contenere almeno 6 caratteri'),
-];
-
-const validateLoginInput = [
-  body('email').notEmpty().trim().isEmail().withMessage('Email non valida'),
-  body('password').notEmpty().withMessage('Password mancante'),
-];
 
 // Auth Endpoints
 router.post('/register', validateRegisterInput, async (req, res, next) => {
