@@ -62,7 +62,7 @@ router.post('/login', validateLoginInput, async (req, res, next) => {
     return res.status(400).json({ errors: errors.array() });
   }
 
-  const { email, password } = req.body;
+  const { password } = req.body;
 
   try {
     const user = await UserModel.findOne({ email: req.body.email });
