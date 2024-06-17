@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { body, validationResult } = require('express-validator');
 
+const validation = require('../middlewares/Validation')
 
 const { validateRegisterInput, validateLoginInput } = validation
 
@@ -51,7 +52,7 @@ router.post('/login', validateLoginInput, async (req, res, next) => {
     return res.status(400).json({ errors: errors.array() });
   }
 
-  const { password } = req.body;
+
 
   try {
     const user = await UserModel.findOne({ email: req.body.email });
@@ -59,7 +60,7 @@ router.post('/login', validateLoginInput, async (req, res, next) => {
       return res.status(400).json({ error: 'Email sbagliata o utente non registrato' });
     }
 
-    const passwordMatch = await bcrypt.compare(password, user.password);
+    const passwordMatch = await bcrypt.compare(req.body.password, user.password);
     if (!passwordMatch) {
       return res.status(400).json({ error: 'Password sbagliata' });
     }
