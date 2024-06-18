@@ -5,7 +5,6 @@ const jwt = require('jsonwebtoken');
 const { body, validationResult } = require('express-validator');
 
 const validation = require('../middlewares/Validation')
-
 const { validateRegisterInput, validateLoginInput } = validation
 
 
