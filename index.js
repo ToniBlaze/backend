@@ -16,6 +16,7 @@ const accountModel = require("./models/Account");
 const tradeModel = require("./models/Trade");
 
 
+const router = express.Router();
 
 
 // // Endpoints Authorization
