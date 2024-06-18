@@ -19,14 +19,14 @@ const tradeModel = require("./models/Trade");
 const router = express.Router();
 
 
-// // Endpoints Authorization
-// const AuthEndpoints = require("./endpoints/Auth");
-// app.use(AuthEndpoints);
+// Endpoints Authorization
+const AuthEndpoints = require("./endpoints/Auth");
+app.use(AuthEndpoints);
 
 
-// // EndPoints Users
-// const endPointsUsers = require("./endpoints/Users_EndPoints");
-// app.use(endPointsUsers);
+// EndPoints Users
+const endPointsUsers = require("./endpoints/Users_EndPoints");
+app.use(endPointsUsers);
 
 // // EndPoints Accounts
 // const endPointsAccounts = require("./endpoints/Accounts_EndPoints");
