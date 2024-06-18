@@ -13,7 +13,7 @@ const saltRounds = 10;
 const jwtSecretKey = process.env.APP_JWT_SECRET_KEY;
 
 // Models
-const UserModel = require('../models/Users');
+const UserModel = require('../models/User');
 
 
 // Auth Endpoints
