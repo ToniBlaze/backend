@@ -10,7 +10,6 @@ const { validateRegisterInput, validateLoginInput } = validation
 
 
 const saltRounds = 10;
-const bcriptPassword = process.env.APP_PASSWORD_BCRIPT;
 const jwtSecretKey = process.env.APP_JWT_SECRET_KEY;
 
 // Models
