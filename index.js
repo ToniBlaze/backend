@@ -29,8 +29,8 @@ const endPointsUsers = require("./endpoints/Users_EndPoints");
 app.use(endPointsUsers);
 
 // // EndPoints Accounts
-// const endPointsAccounts = require("./endpoints/Accounts_EndPoints");
-// app.use(endPointsAccounts);
+const endPointsAccounts = require("./endpoints/Accounts_EndPoints");
+app.use(endPointsAccounts);
 
 // // EndPoints Strategies
 // const endPointsStrategies = require("./endpoints/Strategies_EndPoints");
