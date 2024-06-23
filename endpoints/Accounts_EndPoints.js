@@ -55,7 +55,7 @@ router.put("/accounts/:id", AuthMiddleware, validateAccount, async (req, res, ne
     return res.status(400).json({ errors: errors.array() });
   }
   try {
-    const updatedAccount = await accountModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const updatedAccount = await accountModel.findByIdAndUpdate(req.params.id, req.body);
     if (!updatedAccount) {
       const error = new Error("Conto non trovato");
       error.status = 404;
