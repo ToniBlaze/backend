@@ -9,6 +9,10 @@ const accountModel = require("../models/Account");
 const AuthMiddleware = require("../middlewares/AuthMiddleware");
 const { validateAccount } = require("../middlewares/validators");
 
+const validation = require('../middlewares/Validation')
+const { validateAccount } = validation
+
+
 
 router.post("/accounts", AuthMiddleware, validateAccount, async (req, res, next) => {
   const errors = validationResult(req);
