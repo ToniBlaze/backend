@@ -16,10 +16,6 @@ router.get("/users/:id", async (req, res, next) => {
   }
 });
 
-router.post("/users", async (req, res, next) => {
-  res.status(201).json(await new userModel(req.body).save());
-});
-
 router.put("/users/:id", async (req, res, next) => {
   try {
     res
