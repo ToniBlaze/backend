@@ -24,8 +24,8 @@ const endPointsAccounts = require("./endpoints/Accounts_EndPoints");
 app.use(endPointsAccounts);
 
 // // EndPoints Strategies
-// const endPointsStrategies = require("./endpoints/Strategies_EndPoints");
-// app.use(endPointsStrategies);
+const endPointsStrategies = require("./endpoints/Strategies_EndPoints");
+app.use(endPointsStrategies);
 
 // // EndPoints Trades
 // const endPointsTrades = require("./endpoints/Trades_EndPoints");
