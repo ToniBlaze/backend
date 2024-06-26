@@ -69,6 +69,25 @@ const validateUser = [
 
 ];
 
+const validateStrategy = [
+    body("user")
+        .notEmpty().trim().withMessage("Utente mancante!")
+        .isMongoId().withMessage("ID utente non valido!"),
+
+    body('name').notEmpty().trim().withMessage("Nome mancante!")
+        .isString().withMessage('Il nome non e\' valido'),
+
+    body('type').trim().isString().notEmpty().withMessage('Inserire il Tipo di strategia'),
+
+    body('assetCategory').trim().escape().isString().notEmpty().withMessage('Inserire la categoria degli asset'),
+
+    body('timeframe').trim().isString().notEmpty().withMessage('Inserire il Timeframe'),
+
+    body('description').trim().isString().notEmpty().withMessage('Descrizione mancante')
+
+];
+
+
 const validateTrade = [
     body("author").notEmpty().trim().withMessage("Utente mancante!")
         .isMongoId().withMessage("ID utente non valido!"),
@@ -91,13 +110,13 @@ const validateTrade = [
         .isISO8601().withMessage("Inserisci una data valida"),
 
     body("entryPrice").notEmpty().trim().withMessage("Prezzo di entrata mancante!")
-        .escape().isNumeric().withMessage("Il prezzo inserito non è valido"),
+        .escape().isNumeric().withMessage("Il prezzo inserito non e\' valido"),
 
     body("isClosed").notEmpty().trim().withMessage("Stato del trade mancante!")
         .isBoolean().withMessage("Stato del trade non valido")
-  ];
+];
 
 
-module.exports = { validateRegisterInput, validateLoginInput, validateAccount, validateUser, validateTrade };
+module.exports = { validateRegisterInput, validateLoginInput, validateAccount, validateUser, validateStrategy, validateTrade };
   
 
