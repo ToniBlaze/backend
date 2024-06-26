@@ -69,7 +69,35 @@ const validateUser = [
 
 ];
 
+const validateTrade = [
+    body("author").notEmpty().trim().withMessage("Utente mancante!")
+        .isMongoId().withMessage("ID utente non valido!"),
 
-module.exports = { validateRegisterInput, validateLoginInput, validateAccount, validateUser };
+    body("strategy").notEmpty().trim().withMessage("Strategia mancante!")
+        .isMongoId().withMessage("ID Strategia non valido!"),
+
+    body("account").notEmpty().trim().withMessage("Account mancante!")
+        .isMongoId().withMessage("ID Account non valido!"),
+
+    body("asset").notEmpty().trim().withMessage("Asset mancante!")
+        .isString().withMessage("Asset non valido"),
+
+    body("title").notEmpty().trim().withMessage("Titolo trade mancante!"),
+
+    body("size").notEmpty().trim().withMessage("Size mancante!")
+        .escape().isNumeric().withMessage("La Size deve essere un numero"),
+
+    body("date").notEmpty().trim().withMessage("Data del trade mancante!")
+        .isISO8601().withMessage("Inserisci una data valida"),
+
+    body("entryPrice").notEmpty().trim().withMessage("Prezzo di entrata mancante!")
+        .escape().isNumeric().withMessage("Il prezzo inserito non è valido"),
+
+    body("isClosed").notEmpty().trim().withMessage("Stato del trade mancante!")
+        .isBoolean().withMessage("Stato del trade non valido")
+  ];
+
+
+module.exports = { validateRegisterInput, validateLoginInput, validateAccount, validateUser, validateTrade };
   
 

@@ -9,15 +9,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Models
-const userModel = require("./models/User");
-const strategyModel = require("./models/Strategy");
-const accountModel = require("./models/Account");
-const tradeModel = require("./models/Trade");
-
-
-const router = express.Router();
-
 
 // Endpoints Authorization
 const AuthEndpoints = require("./endpoints/Auth");
